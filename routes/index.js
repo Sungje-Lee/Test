@@ -210,7 +210,7 @@ router.get('/roaming_api/v1/card_subs', function(req, res, next){
               //console.log(rows2[i]);
           }
           sql_prev = sql_para;
-          res.render('update_card.jade', { 'Access-Control-Allow-Origin': '*', rows : rows2});
+          res.render('update_card.jade', {rows : rows2});
         }
       });
       break;

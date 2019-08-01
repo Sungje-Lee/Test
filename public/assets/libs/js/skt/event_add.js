@@ -25,6 +25,7 @@ $(document).ready(function(){
     console.log(json);
 
     $.ajax({
+			crossOrigin : true,
       method      : 'POST',
       url         : 'http://localhost:3000/roaming_api/v1/event',
       traditional : true,
@@ -51,6 +52,7 @@ $(document).ready(function(){
 
             //이벤트 목록 업데이트
             $.ajax({
+        			crossOrigin : true,
               method      : 'GET',
               url         : 'http://localhost:3000/roaming_api/v1/event',
               traditional : true,
@@ -69,6 +71,7 @@ $(document).ready(function(){
             });
 
             $.ajax({
+        			crossOrigin : true,
         			url: "/roaming_api/v1/card_subs?data_checked=07",
         			method: "GET",
               dataType: 'html',

@@ -2,6 +2,7 @@ $(document).ready(function(){
 
 	function ajaxDdonny(){
 		$.ajax({
+			crossOrigin : true,
 			url: "/roaming_api/v1/card_subs?data_checked=00",
 			method: "GET"
 		})

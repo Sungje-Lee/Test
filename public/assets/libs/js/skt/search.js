@@ -22,6 +22,7 @@ $(document).ready(function(){
       console.log(type+input);
 
       $.ajax({
+  			crossOrigin : true,
         method      : 'GET',
         url         : 'http://localhost:3000/roaming_api/v1/card_subs',
         traditional : true,
@@ -63,6 +64,7 @@ $(document).ready(function(){
       console.log(type+input);
 
       $.ajax({
+  			crossOrigin : true,
         method      : 'GET',
         url         : 'http://localhost:3000/roaming_api/v1/card_subs',
         traditional : true,

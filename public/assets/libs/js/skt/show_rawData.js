@@ -10,6 +10,7 @@ function show_rawData(i){
   json.MNC = $('#roaming-card-'+i).find('.card-MNC').html();
 
   $.ajax({
+    crossOrigin : true,
     method      : 'GET',
     url         : 'http://localhost:3000/roaming_api/v1/card_subs',
     traditional : true,

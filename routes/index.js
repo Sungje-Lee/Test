@@ -14,10 +14,10 @@ function numberWithCommas(x) {
 }
 
 var connection = mysql.createConnection({
-    host : '18.219.212.108', //서버 로컬 IP
+    host : 'localhost', //서버 로컬 IP 18.219.212.108
     port : 3306,
-    user : "skt", //계정 아이디
-    password : "skt1234", //계정 비밀번호
+    user : "root", //계정 아이디 skt
+    password : "", //계정 비밀번호 skt1234
     database : "iris" //접속할 DB
 })
 
@@ -133,6 +133,7 @@ router.get('/', function(req, res, next) {
                           //전역 변수인 rows_all로 옮기기
                           rows_all = rows5;
                           korea_time = moment().tz("Asia/Seoul").format('YY-MM-DD HH:mm:ss');
+                          res.setHeader("Access-Control-Allow-Origin", "*");
                           res.render('index.jade', {korea_time: korea_time, rows: rows, rows_all: rows_all, events : rows_eve_or_iss, issues : tmp});
                           //res.render('layout.jade', {korea_time: korea_time});
                         }
@@ -169,6 +170,7 @@ router.get('/roaming_api/v1/card_subs', function(req, res, next){
           rows_prev[0].korea_time = korea_time;
         }
       }
+      res.setHeader("Access-Control-Allow-Origin", "*");
       res.send(rows_prev);
     break;
 
@@ -210,6 +212,7 @@ router.get('/roaming_api/v1/card_subs', function(req, res, next){
               //console.log(rows2[i]);
           }
           sql_prev = sql_para;
+          res.setHeader("Access-Control-Allow-Origin", "*");
           res.render('update_card.jade', {rows : rows2});
         }
       });
@@ -237,6 +240,7 @@ router.get('/roaming_api/v1/card_subs', function(req, res, next){
               rows_prev.push(rows2[i]);
           }
           sql_prev = sql_para;
+          res.setHeader("Access-Control-Allow-Origin", "*");
           res.render('update_card.jade', {rows : rows2});
         }
       });
@@ -264,6 +268,7 @@ router.get('/roaming_api/v1/card_subs', function(req, res, next){
               rows_prev.push(rows2[i]);
           }
           sql_prev = sql_para;
+          res.setHeader("Access-Control-Allow-Origin", "*");
           res.render('update_card.jade', {rows : rows2});
         }
       });
@@ -291,6 +296,7 @@ router.get('/roaming_api/v1/card_subs', function(req, res, next){
               rows_prev.push(rows2[i]);
           }
           sql_prev = sql_para;
+          res.setHeader("Access-Control-Allow-Origin", "*");
           res.render('update_card.jade', {rows : rows2});
         }
       });
@@ -315,6 +321,7 @@ router.get('/roaming_api/v1/card_subs', function(req, res, next){
                 rows_prev.push(rows2[i]);
             }
             sql_prev = sql_para;
+            res.setHeader("Access-Control-Allow-Origin", "*");
             res.render('update_card.jade', {rows : rows2});
           }
         });
@@ -337,6 +344,7 @@ router.get('/roaming_api/v1/card_subs', function(req, res, next){
               result[i].subs_count_Total_string = numberWithCommas(result[i].subs_count_Total);
               rows_prev.push(result[i]);
             }
+            res.setHeader("Access-Control-Allow-Origin", "*");
             res.render('update_card.jade', {rows : result});
           }
         });
@@ -358,6 +366,7 @@ router.get('/roaming_api/v1/card_subs', function(req, res, next){
               result[i].subs_count_Total_string = numberWithCommas(result[i].subs_count_Total);
               rows_prev.push(result[i]);
             }
+            res.setHeader("Access-Control-Allow-Origin", "*");
             res.render('update_card.jade', {rows : result});
           }
         });
@@ -397,6 +406,7 @@ router.get('/roaming_api/v1/card_subs', function(req, res, next){
                         rows_prev.push(result[i]);
                       }
                       console.log(rows_prev); //저장된 값들 보기
+                      res.setHeader("Access-Control-Allow-Origin", "*");
                       res.render('update_card.jade', {rows : result});
                    }
                  });
@@ -465,6 +475,7 @@ router.get('/roaming_api/v1/card_subs', function(req, res, next){
         rows1[0].count_202_203_string = numberWithCommas(rows1[0].count_202_203);
         rows1[0].count_200_204_string = numberWithCommas(rows1[0].count_200_204);
         rows1[0].count_202_204_string = numberWithCommas(rows1[0].count_202_204);
+        res.setHeader("Access-Control-Allow-Origin", "*");
         res.send(rows1);
       }
     });
@@ -492,6 +503,7 @@ router.get('/roaming_api/v1/event', function(req, res, next) {
             console.log(err);
         }
         else{
+          res.setHeader("Access-Control-Allow-Origin", "*");
           res.render('update_events.jade', {events : rows1});
         }
 
@@ -541,6 +553,7 @@ router.get('/roaming_api/v1/event', function(req, res, next) {
         }
         else{
           console.log(rows2);
+          res.setHeader("Access-Control-Allow-Origin", "*");
           res.render('update_events.jade', {events : rows2});
         }
       });
@@ -581,9 +594,11 @@ router.post('/roaming_api/v1/event', function(req, res, next) {
         connection.query(sql_para+';', function(err, rows2, fields){
           if(err){
               console.log(err);
+              res.setHeader("Access-Control-Allow-Origin", "*");
               res.send({"성공여부" : 0});
           }
           else{
+            res.setHeader("Access-Control-Allow-Origin", "*");
             res.send({"성공여부" : 1});
           }
         });
@@ -608,9 +623,11 @@ router.post('/roaming_api/v1/event', function(req, res, next) {
         connection.query(sql_para+';', function(err, rows2, fields){ //해당 이벤트 삭제 수행
           if(err){
               console.log(err);
+              res.setHeader("Access-Control-Allow-Origin", "*");
               res.send({"성공여부" : 0});
           }
           else{
+            res.setHeader("Access-Control-Allow-Origin", "*");
             res.send({"성공여부" : 1});
           }
         });
@@ -640,6 +657,7 @@ router.get('/roaming_api/v1/issue', function(req, res, next) {
               console.log(err);
           }
           else{
+            res.setHeader("Access-Control-Allow-Origin", "*");
             res.render('update_issue.jade', {issues : rows1});
           }
         });
@@ -687,6 +705,7 @@ router.get('/roaming_api/v1/issue', function(req, res, next) {
            }
            else{
              console.log(rows2);
+             res.setHeader("Access-Control-Allow-Origin", "*");
              res.render('update_issue.jade', {issues : rows2});
            }
          });
@@ -725,9 +744,11 @@ router.post('/roaming_api/v1/issue', function(req, res, next) {
         connection.query(sql_para+';', function(err, rows2, fields){
           if(err){
               console.log(err);
+              res.setHeader("Access-Control-Allow-Origin", "*");
               res.send({"성공여부" : 0});
           }
           else{
+            res.setHeader("Access-Control-Allow-Origin", "*");
             res.send({"성공여부" : 1});
           }
         });
@@ -751,9 +772,11 @@ router.post('/roaming_api/v1/issue', function(req, res, next) {
         connection.query(sql_para+';', function(err, rows2, fields){
           if(err){
               console.log(err);
+              res.setHeader("Access-Control-Allow-Origin", "*");
               res.send({"성공여부" : 0});
           }
           else{
+            res.setHeader("Access-Control-Allow-Origin", "*");
             res.send({"성공여부" : 1});
           }
         });

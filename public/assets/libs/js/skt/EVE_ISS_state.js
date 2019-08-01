@@ -2,6 +2,7 @@ $(document).ready(function(){
   $('#event-tab').click(function(){
 
       $.ajax({
+  			crossOrigin : true,
         method      : 'GET',
         url         : 'http://localhost:3000/roaming_api/v1/event',
         traditional : true,
@@ -23,6 +24,7 @@ $(document).ready(function(){
   $('#issue-tab').click(function(){
 
       $.ajax({
+  			crossOrigin : true,
         method      : 'GET',
         url         : 'http://localhost:3000/roaming_api/v1/issue',
         traditional : true,

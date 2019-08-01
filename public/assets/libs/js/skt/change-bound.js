@@ -7,6 +7,7 @@ $(document).ready(function(){
   		$('#btn-ib').addClass('btn-outline-secondary');
   		$('#btn-ib').removeClass('btn-secondary');
           $.ajax({
+      			crossOrigin : true,
         url: "/roaming_api/v1/card_subs?data_checked=10",
         dataType    : 'html',
         method: "GET"
@@ -33,6 +34,7 @@ $(document).ready(function(){
   		$('#btn-ob').addClass('btn-outline-secondary');
   		$('#btn-ob').removeClass('btn-secondary');
           $.ajax({
+      			crossOrigin : true,
   			url: "/roaming_api/v1/card_subs?data_checked=11",
         dataType    : 'html',
         method: "GET"

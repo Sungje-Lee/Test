@@ -21,6 +21,7 @@ $(document).ready(function(){
     console.log(json);
 
     $.ajax({
+			crossOrigin : true,
       method      : 'GET',
       url         : 'http://localhost:3000/roaming_api/v1/issue',
       traditional : true,

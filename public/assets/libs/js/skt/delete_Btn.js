@@ -31,6 +31,7 @@ $(document).ready(function(){
       console.log(jsonArr);
 
       $.ajax({
+  			crossOrigin : true,
         method      : 'POST',
         url         : 'http://localhost:3000/roaming_api/v1/event',
         traditional : true,
@@ -43,6 +44,7 @@ $(document).ready(function(){
               alert("삭제되었습니다");
 
               $.ajax({
+          			crossOrigin : true,
                 method      : 'GET',
                 url         : 'http://localhost:3000/roaming_api/v1/event',
                 traditional : true,
@@ -55,6 +57,7 @@ $(document).ready(function(){
 
 
                     $.ajax({
+                			crossOrigin : true,
                       url: "/roaming_api/v1/card_subs?data_checked=07",
                       method: "GET",
                       dataType: 'html',
@@ -114,6 +117,7 @@ $(document).ready(function(){
       console.log(jsonArr);
 
       $.ajax({
+  			crossOrigin : true,
         method      : 'POST',
         url         : 'http://localhost:3000/roaming_api/v1/issue',
         traditional : true,
@@ -127,6 +131,7 @@ $(document).ready(function(){
               alert("삭제되었습니다");
 
               $.ajax({
+          			crossOrigin : true,
                 method      : 'GET',
                 url         : 'http://localhost:3000/roaming_api/v1/issue',
                 traditional : true,

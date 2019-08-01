@@ -37,6 +37,7 @@ $(document).ready(function(){
       console.log(jsonArr);
 
       $.ajax({
+        crossOrigin : true,
         method      : 'GET',
         url         : 'http://localhost:3000/roaming_api/v1/card_subs',
         traditional : true,

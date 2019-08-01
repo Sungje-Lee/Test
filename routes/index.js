@@ -150,7 +150,7 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.get('/roaming_api/v1/card_subs', function(req, res, next){
+router.get('/roaming_api/v1/card_subs', cors(), function(req, res, next){
 
   var string =  req.query.data_checked;
   var cond = [];
